@@ -7,7 +7,7 @@ php:
   - hhvm
 
 before_script:
-  - echo 'short_open_tag = On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - if [[ "$(phpenv version-name)" != "hhvm" ]]; then echo 'short_open_tag = On' >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi
   - mysql -e 'CREATE DATABASE concrete5_tests;'
   - cd web/concrete
   - composer install
@@ -17,3 +17,4 @@ script: phpunit
 
 notifications:
   email: false
+  irc: "irc.freenode.org#concrete5-dev"
