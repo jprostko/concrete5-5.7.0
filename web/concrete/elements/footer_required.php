@@ -15,4 +15,10 @@ print $v->markFooterAssetPosition();
 
 // user profile menu
 Loader::element('account/menu');
+
+
+$debugbar = Core::make('debugbar');
+$debugbarRenderer = $debugbar->getJavascriptRenderer();
+
+echo $debugbarRenderer->render();
 ?>
